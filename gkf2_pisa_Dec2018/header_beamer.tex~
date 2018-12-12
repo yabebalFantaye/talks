@@ -1,0 +1,28 @@
+%--------
+%\documentclass[11]{beamer}
+%\setbeamertemplate{navigation symbols}{}
+
+\usepackage{beamerthemeshadow}
+ 
+
+%\usecolortheme[named=blue]{structure}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  \setbeamercovered{transparent}
+  \setbeamertemplate{items}[ball]
+  \setbeamertemplate{theorems}[numbered]
+  \setbeamertemplate{footline}[frame number]
+}
+ 
+\usepackage{beamerthemeintridea}
+%% \usepackage{beamerthemesplit}
+%% \usetheme{Berkeley}
+%% \usetheme{Warsaw}
+%% \usecolortheme{dolphin}
+
+\usepackage{beamerthemesplit}
+\usepackage{graphics}
+\usepackage{graphicx}
+\usepackage{hyperref}
