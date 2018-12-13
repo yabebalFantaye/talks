@@ -1,139 +1,41 @@
-\documentclass[Times, 10]{beamer}
+\documentclass[10]{beamer}
 
-\renewcommand{\figurename}{}
-\usepackage[font={footnotesize,it}]{caption}
-\include{header_hk.tex}
+%\renewcommand{\figurename}{}
+%\usepackage[font={footnotesize,it}]{caption}
+%\include{header_hk.tex}
 %\include{header_drubnsen}
 %\include{header_beamer}
-
-
-\usepackage{graphicx} % graphics
-\usepackage{epsfig} % eps graphics
-\usepackage{hyperref} % urls
-\usepackage{booktabs, caption} % table styling
-
-%% % suppress navigation bar
-%\beamertemplatenavigationsymbolsempty
-
-
-%% % set fonts
-\usepackage{fontspec}
-%\setsansfont{Fontin Sans}
-\setsansfont{Times}
-\setbeamerfont{frametitle}{series=\bfseries} %size=\LARGE
-
-%% % color definitions
-\usepackage{color}
-\definecolor{uipoppy}{RGB}{225, 64, 5}
-\definecolor{uipaleblue}{RGB}{96,123,139}
-\definecolor{uiblack}{RGB}{0, 0, 0}
-
-%% % caption styling
-\DeclareCaptionFont{uiblack}{\color{uiblack}}
-\DeclareCaptionFont{uipoppy}{\color{uipoppy}}
-\captionsetup{labelfont={uipoppy},textfont=uiblack}
-
-
-%----------------------------------------
-% see the macros.tex file for definitions
-%\include{macros}
-%---------------------------------
-
-% adds reference to bottom right of corner of a slide
-%% \usepackage[absolute,overlay]{textpos} % text references in slide corners
-%% \newcommand\textref[1]{%
-%%   \begin{textblock*}{\paperwidth}(0pt,0.99\textheight)
-%%   \raggedleft \tiny{\emph{#1}}\hspace{.5em}
-%%   \end{textblock*}}
-
-%% % for drawing circles around numbers
-%% % ex. \circled{1} Add some text here.
-\usepackage{tikz}
-\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
-            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
-
-
-%% %------------------------------------
-%% %----------------------
 
 \usepackage{amssymb,latexsym,amssymb,amsmath,amsbsy,amsopn,amstext,upgreek}
 \usepackage{color,multicol}
 \usepackage{graphicx,wrapfig,fancybox,watermark,graphics}
-\usepackage{picins}
-\usepackage{pgf}
+%\usepackage{picins}
+%\usepackage{pgf}
 %\usepackage{media9}
 \usepackage{hyperref}
-\hypersetup{
+%\usepackage{booktabs, caption} % table styling
+%\hypersetup{
 %    pdfpagemode=FullScreen, % show in full screen?
+%}
+
+\mode<presentation>
+{
+  \usetheme{Singapore}
+  \setbeamercovered{transparent}
+  \setbeamertemplate{items}[ball]
+  \setbeamertemplate{theorems}[numbered]
+  \setbeamertemplate{footline}[frame number]
 }
-\usepackage{pdfpages}
+\usecolortheme[named=dolphine]{structure}
 
-\usepackage{listings,bera}
-\definecolor{keywords}{RGB}{255,0,90}
-\definecolor{comments}{RGB}{60,179,113}
-\lstset{language=C,
-    keywordstyle=\color{keywords},
-    commentstyle=\color{comments}\emph
-}
-\usepackage{algorithm}
-\usepackage{algorithmic}
-\renewcommand{\algorithmicrequire}{\textbf{Input:}}
-\renewcommand{\algorithmicensure}{\textbf{Output:}}
-
-% reference entry
-\usepackage{bibentry}
-\usepackage[numbers]{natbib}
-
-\usepackage[
-    %compress,
-    minimal,
-    %nonav,
-    %red,
-    %gold,
-    blue,
-    %numbers,
-    nologo,
-    polyu,
-    comp,
-    forty,
-    seventyfive,
-    ]{beamerthemeHongKong} 
-    
-%{beamerthemePittsburgh}
-% {beamerthemeAnnArbor}
-
-
+%% % suppress navigation bar
+\beamertemplatenavigationsymbolsempty
 
 %========================================
 
-%----------------------
-%----------------------
-
-\usepackage{fontspec}
-\setsansfont{Courier}
-%\setsansfont{Times}
-%\setbeamerfont{frametitle}{series=\bfseries} %size=\LARGE
-
-
-
 
 \newcommand{\figdir}[1]{figures/#1}
-\newcommand{\figdirTwo}[1]{figures/#1}
 \newcommand{\subdir}{}
-\newcommand{\subdirTwo}{figures_fullsky/l105mpow2ns1024/}
-\newcommand{\subdirThree}{figures_fullsky/l105mpow3ns1024/}
-\newcommand{\subdirGal}{figures_galactic80/l105mpow1ns1024/}
-\newcommand{\subdirPl}{figures_planck/l105mpow1ns1024/}
-
-
-\newcommand{\subdirj}{figures_fullsky/mpow1j10beta2048/}
-\newcommand{\subdirjTwo}{figures_fullsky/mpow2j10beta2048/}
-\newcommand{\subdirjThree}{figures_fullsky/mpow3j10beta2048/}
-\newcommand{\subdirGalj}{figures_galactic80/mpow1j10beta2048/}
-\newcommand{\subdirPlj}{figures_planck/mpow1j10beta2048/}
-
-\newcommand{\figmask}[1]{/Users/yabebal/My-Works/planck/mf_paper1_output/masks/#1}
-
 
 \newcommand{\figref}[1]{Figure (\ref{#1})}
 %\newcommand{\eqref}[1]{Eqn. (\ref{#1})}
@@ -158,28 +60,10 @@
 
 \date{\today} 
 
-% \pgfdeclaremask{uio}{uio}
-% \pgfdeclareimage[mask=fsu,width=1cm]{fsu-logo}{uio}
-% 
-% \logo{\vbox{\vskip0.1cm\hbox{\pgfuseimage{f/mn/stornext/u2/yabebalf/My-Works/Writings/kile-LocEnv/uio_logo_ny.pdf}}}}
 
 \begin{document}
 
 
-
- % \setbeamertemplate{background}
- % {\includegraphics[width=\paperwidth,height=\paperheight]{frontpage_bg}}
- % \setbeamertemplate{footline}[default]
-
-%% \begin{frame}
-%% \vspace{2cm}
-%% \begin{columns}
-%% \column{2.75in}
-%%   \titlepage
-%%   \vspace{10cm}
-%% \column{2.0in}
-%% \end{columns}
-%% \end{frame}
 
 
 
@@ -221,8 +105,8 @@
 
 \begin{itemize}
 
-\item Let $M$ be a general Riemannian manifold. In particular, for CMB we can think of $M$ as a sphere $S^2$.
-\item  The basic set of random geometrical objects are $\mathcal{R}$ valued random field $f(x)$ defined on M and its excursion sets $A$ 
+%\item Let $M$ be a general Riemannian manifold. In particular, for CMB we can think of $M$ as a sphere $S^2$.
+\item  The basic set of random geometrical objects are $\mathcal{R}$ valued random field $f(x)$ defined on $S^2$ and its excursion sets $A$ 
 
 \[
 A_u(f, M) = \{ x \in M : f(x) \geq u \} 
@@ -234,73 +118,72 @@ A_u(f, M) = \{ x \in M : f(x) \geq u \}
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u-3_fwhm5deg.pdf}} 
-\includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u-2_fwhm5deg.pdf}} 
-\includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u-1_fwhm5deg.pdf}} \\ 
-\includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u0_fwhm5deg.pdf}} 
-\includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u1_fwhm5deg.pdf}} 
-\includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u2_fwhm5deg.pdf}} 
+\includegraphics[width=0.33\textwidth,angle=0]{\figdir{map_sup_u-3_fwhm5deg.pdf}} 
+\includegraphics[width=0.33\textwidth,angle=0]{\figdir{map_sup_u-2_fwhm5deg.pdf}} 
+\includegraphics[width=0.33\textwidth,angle=0]{\figdir{map_sup_u-1_fwhm5deg.pdf}} \\ 
+\includegraphics[width=0.33\textwidth,angle=0]{\figdir{map_sup_u0_fwhm5deg.pdf}} 
+\includegraphics[width=0.33\textwidth,angle=0]{\figdir{map_sup_u1_fwhm5deg.pdf}} 
+\includegraphics[width=0.33\textwidth,angle=0]{\figdir{map_sup_u2_fwhm5deg.pdf}} 
 %\includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u3_fwhm5deg.pdf}} 
 \end{center}
 \end{figure}
 
 
-
 }
 
-%----------------------------------------------
-\frame {
+% %----------------------------------------------
+% \frame {
 
-  \frametitle{Morphological Properties}
-  Morphological properties are the characteristics of the field which are
-  invariant under translations and rotations and which are additive
-  i.e the Minkowski Functionals -  Area, Perimeter Length and Euler Poincar\'e characteristics
+%   \frametitle{Morphological Properties}
+%   Morphological properties are the characteristics of the field which are
+%   invariant under translations and rotations and which are additive
+%   i.e the Minkowski Functionals -  Area, Perimeter Length and Euler Poincar\'e characteristics
 
-}
+% }
 
-  \theorem{Hadwiger Theorem (1959)}{all properties of a
-d-dimensional convex set (or more generally, a finite union of convex
-sets) which satisfy the morphological properties are contained in d + 1 MF values.}
+%   \theorem{Hadwiger Theorem (1959)}{all properties of a
+% d-dimensional convex set (or more generally, a finite union of convex
+% sets) which satisfy the morphological properties are contained in d + 1 MF values.}
 
-Note that for a digital image, one can consider a pixel as a compact and convex set.
+% Note that for a digital image, one can consider a pixel as a compact and convex set.
 
-\frame {
+% \frame {
 
-  \frametitle{Minkowski Functionals Properties}
+%   \frametitle{Minkowski Functionals Properties}
 
 
-For $\mathca{K}^d$ the class of convex, compact sets in $\mathca{R}^d$, a continuous map $T : \mathca{K}^d \rightarrow \mathcal{R}$
-\begin{equation}
-T(gK)=T(K) \forall{K}\in \math{K}^d, g\in G_d  
-\end{equation}
+% For $\mathca{K}^d$ the class of convex, compact sets in $\mathca{R}^d$, a continuous map $T : \mathca{K}^d \rightarrow \mathcal{R}$
+% \begin{equation}
+% T(gK)=T(K) \forall{K}\in \math{K}^d, g\in G_d  
+% \end{equation}
 
-where $G_d$ is the group of rigid motions in $d$ dimensions (i.e.
-rotations and translations); and 
+% where $G_d$ is the group of rigid motions in $d$ dimensions (i.e.
+% rotations and translations); and 
 
-\begin{equation}
-T(K_1 \intersection K_2) + T(K_1 \union
-K_2) = T(K_1) + T(K_2)
-\end{equation}
-for $K_1,K_2\in \mathca{K}^n$
-with $K_1 \intersection K_2 \in \mathca{K}^d$. Then
-$T$ can be expressed as a linear combination of the MFs
+% \begin{equation}
+% T(K_1 \intersection K_2) + T(K_1 \union
+% K_2) = T(K_1) + T(K_2)
+% \end{equation}
+% for $K_1,K_2\in \mathca{K}^n$
+% with $K_1 \intersection K_2 \in \mathca{K}^d$. Then
+% $T$ can be expressed as a linear combination of the MFs
 
-\begin{equation}
-  T(K) = \sum_{i=0}^{d}\alpha_i W_i(K) \hspace{1cm} \alpha_i\in \mathcal{R}
-\end{equations}
+% \begin{equation}
+%   T(K) = \sum_{i=0}^{d}\alpha_i W_i(K) \hspace{1cm} \alpha_i\in \mathcal{R}
+% \end{equation}
  
-}
+% }
 
-\frame {
+% \frame {
 
-  \frametitle{Steiner formula}
+%   \frametitle{Steiner formula}
 
-  \begin{equation}
-    W_j(K_r) = \sum_{i=0}^{d-j}{d-j}\choose{i}W_{i+j}(K)r^i
-  \end{equation}
+%   \begin{equation}
+%     W_j(K_r) = \sum_{i=0}^{d-j}{d-j}\choose{i}W_{i+j}(K)r^i
+%   \end{equation}
 
-  The generalized Steiner formula can also be generalized to the other Minkowski functionals besides volume as
-}
+%   The generalized Steiner formula can also be generalized to the other Minkowski functionals besides volume as
+% }
   
   % ----------------------------------------------
 
