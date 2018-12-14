@@ -26,7 +26,7 @@
   \setbeamertemplate{theorems}[numbered]
   \setbeamertemplate{footline}[frame number]
 }
-\usecolortheme[named=dolphine]{structure}
+%\usecolortheme[named=dolphine]{structure}
 
 %% % suppress navigation bar
 \beamertemplatenavigationsymbolsempty
@@ -46,16 +46,16 @@
 \newcommand{\nside}[1]{N_{\rm side}}
 
 
-\title{{Application of the second order Gaussian kinematic formula to CMB
-    data analysis}}
+\title{Possible application of the second order Gaussian Kinematic Formula to CMB
+    data analysis}
   
 
-\author{Yabebal Fantaye}
+\author[CMStatistics 2018]{Yabebal Fantaye}
 \institute[Cape Town]{
   { African Institute For Mathematical Sciences (AIMS) \\
     South Africa} \\ 
 \inst{} \\
- In collaboration with: D. Marinucci, V. Cammarota}
+ In collaboration with: D. Marinucci, V. Cammarota, \& A. P. Todino}
 
 
 \date{\today} 
@@ -100,17 +100,48 @@
 \section{Introduction}
 %-----------------------------------------------------------------------------80
 
+\frame{
+
+  \frametitle{Spherical Gaussian Random Fields}
+
+  \begin{itemize}
+\item In this talk all the results are presented for random eigenfunctions of $S^2$
+
+%where $\Delta _{\mathbb{S}^{2}}$ is the Laplace-Beltrami operator on $%
+%\mathbb{S}^{2}$
+
+\begin{eqnarray*}
+  \Delta _{\mathbb{S}^{2}}f_{\ell }+\lambda _{\ell }f_{\ell } &=&0,%
+                                                                  \mbox{ }\mbox{ }\mbox{ }f_{\ell }:\mathbb{S}^{2}\rightarrow \mathbb{R}, \\
+  \mathbb{E}[f_{\ell }(x)] &=&0,\mbox{ and }\mathbb{E}[f_{\ell }(x)^{2}]=1%
+                               \text{,} \\
+  \mathbb{E}[f_{\ell }(x)f_{\ell }(y)] &=&P_{\ell }(\cos d(x,y)),
+\end{eqnarray*}%
+where $\lambda _{\ell }=\ell (\ell +1),\mbox{ }\ell =0,1,\dots $, $P_{\ell }$ are the Legendre polynomials and $d(x,y)$ is the spherical
+geodesic distance between $x$ and $y.$ The random fields $\{f_{\ell }(x),x\in \mathbb{S}^{2}\}
+$ are Gaussian and isotropic.
+
+\item \emph{Motivation}: Full-sky (inpainted) maps of the CMB have been released by Planck
+2018; and see also A Rassat et al. (2014).
+
+  \end{itemize}
+
+}
+
+
 \frame {
 \frametitle{Geometry of Gaussian Random Fields}
 
 \begin{itemize}
 
 %\item Let $M$ be a general Riemannian manifold. In particular, for CMB we can think of $M$ as a sphere $S^2$.
-\item  The basic set of random geometrical objects are $\mathcal{R}$ valued random field $f(x)$ defined on $S^2$ and its excursion sets $A$ 
+\item  The basic set of random geometrical objects are $\mathcal{R}$
+  valued random field $f(x)$ defined on $S^2$ and its excursion sets
+  $A$, subregions where the value of $f$ exceeds the threshold $u$.
 
-\[
-A_u(f, M) = \{ x \in M : f(x) \geq u \} 
-\] 
+  \begin{equation}
+    A_u(f, M) = \{ x \in M : f(x) \geq u \} 
+  \end{equation}
 
 %\item our interest here is to study the geometry e.g. peaks, isocontour lengths, area of these objects 
 
@@ -119,41 +150,115 @@ A_u(f, M) = \{ x \in M : f(x) \geq u \}
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.33\textwidth,angle=0]{\figdir{map_sup_u-3_fwhm5deg.pdf}} 
-\includegraphics[width=0.33\textwidth,angle=0]{\figdir{map_sup_u-2_fwhm5deg.pdf}} 
-\includegraphics[width=0.33\textwidth,angle=0]{\figdir{map_sup_u-1_fwhm5deg.pdf}} \\ 
+%\includegraphics[width=0.33\textwidth,angle=0]{\figdir{map_sup_u-2_fwhm5deg.pdf}} 
+%\includegraphics[width=0.33\textwidth,angle=0]{\figdir{map_sup_u-1_fwhm5deg.pdf}} \\ 
 \includegraphics[width=0.33\textwidth,angle=0]{\figdir{map_sup_u0_fwhm5deg.pdf}} 
-\includegraphics[width=0.33\textwidth,angle=0]{\figdir{map_sup_u1_fwhm5deg.pdf}} 
+%\includegraphics[width=0.33\textwidth,angle=0]{\figdir{map_sup_u1_fwhm5deg.pdf}} 
 \includegraphics[width=0.33\textwidth,angle=0]{\figdir{map_sup_u2_fwhm5deg.pdf}} 
 %\includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u3_fwhm5deg.pdf}} 
 \end{center}
 \end{figure}
 
-
 }
 
-% %----------------------------------------------
-% \frame {
-
-%   \frametitle{Morphological Properties}
 %   Morphological properties are the characteristics of the field which are
 %   invariant under translations and rotations and which are additive
 %   i.e the Minkowski Functionals -  Area, Perimeter Length and Euler Poincar\'e characteristics
-
 % }
-
-%   \theorem{Hadwiger Theorem (1959)}{all properties of a
-% d-dimensional convex set (or more generally, a finite union of convex
-% sets) which satisfy the morphological properties are contained in d + 1 MF values.}
-
 % Note that for a digital image, one can consider a pixel as a compact and convex set.
 
-% \frame {
+% %----------------------------------------------
+\frame {
 
-%   \frametitle{Minkowski Functionals Properties}
+  \frametitle{Morphological Properties}
+
+  For a continuous functional $T$ on $\mathcal{R}$ 
+  \begin{itemize}
+    
+    \item \emph{Translation and rotation invariant}:
+      \begin{equation}      
+        T(gK)=T(K) \mbox{ }\mbox{ } \forall K \in \mathcal{K}^d,
+        \mbox{ } g\in G_d \mbox{ } \text{(group of
+          rigid motions)}
+      \end{equation}
+      
+  \item \emph{Additiv}: for convex sets (pixels) $\mathcal{K}^d$ in $\mathcal{R}^d$
+
+    \begin{equation}
+      T(K_1 \cap K_2) + T(K_1 \cup
+      K_2) = T(K_1) + T(K_2)
+    \end{equation}
+    
+    $K_1,K_2\in \mathcal{K}^n$ with $K_1 \cap K_2 \in \mathcal{K}^d$
+    
+  \end{itemize}
+  
+}
+
+\frame {
+  \frametitle{Steiner formula}
+
+  \begin{itemize}
+  \item  For convex, $M$, the volume, Lebesgue measure $\mu$, of a tube, $Tube(M,\rho) = \{
+    t\in \mathcal{R}^n : dist(M,x)\leq\rho \}$,  with radius $\rho$ bounding $M$ is a polynomial
+  in $\rho$ with terms of order $n, n-1, n-dim(M)$:
+
+  \begin{equation}
+    \mu(Tube(M,\rho)) = \sum_{j=0}^{n=dim(M)}{\omega_j\mathcal{L}_{n-j}(M)\rho^j}
+  \end{equation}
+
+  where $\mathcal{L}_j$ are the Lipschitz-Killing Curvatures; and  $w_j$ is the volume of a unit ball in $\mathcal{R}^j$.
 
 
-% For $\mathca{K}^d$ the class of convex, compact sets in $\mathca{R}^d$, a continuous map $T : \mathca{K}^d \rightarrow \mathcal{R}$
-% \begin{equation}
+  \item The Lipschitz-Killing Curvatures are related to Minkowski
+  Functionals as $$\mathcal{M}_j(A) = (j!\omega_j)\mathcal{L}_{n-j}$$
+
+  \end{itemize}
+
+  }
+  
+    
+  \frame {
+    
+  \frametitle{Lipschitz-Killing Curvatures}
+
+    \begin{equation}
+      area(Tube(A,\rho)) =
+      \pi\rho^2\mathcal{L}_0(A)+\rho\mathcal{L}_1(A)+\mathcal{L}_2(A)
+    \end{equation}
+
+    \begin{picture}(100,100)
+      \put(100,20){\includegraphics[width=0.33\textwidth,angle=0]{\figdir{misc/tube_triangle.png}}}
+      \put(140,40){$A$}
+    \end{picture}
+
+    
+    
+    $\mathcal{L}_0$ - the Euler characteristics of A; \\
+    $\mathcal{L}_1$ - half the boundary length of A; \\
+    $\mathcal{L}_2$ - the area of A
+
+}
+
+
+\frame {
+
+  \frametitle{Hadwiger Theorem (1959)}
+  \begin{itemize}
+    \item All properties of a d-dimensional convex set (or more generally, a finite union of convex
+    sets e.g. pixels of a digital image) which satisfy the morphological properties are contained in d + 1 (LKC) values.\\
+
+    \item For $\mathcal{K}^d$ the class of convex, compact sets in $\mathcal{R}^d$, a continuous map $T : \mathcal{K}^d \rightarrow \mathcal{R}$
+    which satisfies the additive and rotation and translation invariance
+    can be expressed as a linear combination of the LKCs
+  \end{itemize}
+
+  \begin{equation}
+    T(K) = \sum_{i=0}^{d}\alpha_i \mathcal{L}_i(K) \hspace{1cm} \alpha_i\in \mathcal{R}
+  \end{equation}
+
+
+ % \begin{equation}
 % T(gK)=T(K) \forall{K}\in \math{K}^d, g\in G_d  
 % \end{equation}
 
@@ -164,76 +269,58 @@ A_u(f, M) = \{ x \in M : f(x) \geq u \}
 % T(K_1 \intersection K_2) + T(K_1 \union
 % K_2) = T(K_1) + T(K_2)
 % \end{equation}
-% for $K_1,K_2\in \mathca{K}^n$
-% with $K_1 \intersection K_2 \in \mathca{K}^d$. Then
+% for $K_1,K_2\in \mathcal{K}^n$
+% with $K_1 \intersection K_2 \in \mathcal{K}^d$. Then
 % $T$ can be expressed as a linear combination of the MFs
 
-% \begin{equation}
-%   T(K) = \sum_{i=0}^{d}\alpha_i W_i(K) \hspace{1cm} \alpha_i\in \mathcal{R}
-% \end{equation}
  
-% }
+ }
 
-% \frame {
-
-%   \frametitle{Steiner formula}
-
-%   \begin{equation}
-%     W_j(K_r) = \sum_{i=0}^{d-j}{d-j}\choose{i}W_{i+j}(K)r^i
-%   \end{equation}
-
-%   The generalized Steiner formula can also be generalized to the other Minkowski functionals besides volume as
-% }
   
   % ----------------------------------------------
 
-\frame {
-
-  \frametitle{Lifschitz-Killing Curvatures (Minkowski Functionals)}
-
-  \begin{itemize} 
-
-    \item Lifschitz-Killing Curvatures (LKCs), a.k.a Minkowski Functionals (MFs), can be defined using a tube formula:
-    
-    \[
-    \mu(Tube(M,\rho)) = \sum_{j=0}^{n=dim(M)}{\omega_j\mathcal{L}_{n-j}(M)\rho^j}
-    \]
-
-    where $Tube(M,\rho) = \{ t\in \mathcal{R}^N : dist(M,x)\leq\rho \}$ is a
-    tube of radius $\rho$ bounding M; $\mu$ is Lebesgue measure; and
-    $w_j$ is the volume of a unit ball in $\mathcal{R}^j$.
-    
-  \item LKCs depend on the Riemannian metric, and are a measure of the k-dimensional size of the
-    Riemannian manifold $M$.
-
-  %% \item For example in $n=2$, $\mathcal{L}_{0}$ corresponds to the
-  %%   genus ; $\mathcal{L}_{1}$ to the perimeter/2 and
-  %%   $\mathcal{L}_{2}(M)$ to the area.
-    
-  \end{itemize}
-
-}
-
-%-----------------------------------------------------------------------------
-
-\frame {
-  
-  \frametitle{Lifschitz-Killing Curvatures (Minkowski Functionals) II}   
-    \begin{itemize}
-    \item $\mathcal{L}_{0}(A_{u}(f))$ is the genus or the
-      Euler-Poincar\`{e} characteristic (minima+maxima-saddles) of the
-      excursion regions. The third Minkowski functional. \\
-    \item $\mathcal{L}_{1}(A_{u}(f))$ is half the boundary length of
-      the excursion regions, e.g. the second Minkowski functional. \\
-    \item $\mathcal{L}_{2}(A_{u}(f))$ is the area of the excursion
-      regions, e.g.  the first Minkowski functional.
-    \end{itemize}
-    
-    
-  }
+% \frame {  
+%   \frametitle{Lipschitz-Killing Curvatures (Minkowski Functionals) II}   
+%     \begin{itemize}
+%     \item $\mathcal{L}_{0}(A_{u}(f))$ is the genus or the
+%       Euler-Poincar\`{e} characteristic (minima+maxima-saddles) of the
+%       excursion regions. The third Minkowski functional. \\
+%     \item $\mathcal{L}_{1}(A_{u}(f))$ is half the boundary length of
+%       the excursion regions, e.g. the second Minkowski functional. \\
+%     \item $\mathcal{L}_{2}(A_{u}(f))$ is the area of the excursion
+%       regions, e.g.  the first Minkowski functional.
+%     \end{itemize}       
+%   }
 
 %-----------------------------------------------------------------------------80
-\section{The Gaussian Kinematic Formula (GKF)}
+\section{Lipschitz-Kiling curvatures}
+
+% -----------------------------------------------------------------------------80
+
+\frame{
+  \frametitle{Overview }
+
+  \begin{itemize}
+    \item A  lot  of  mathematical  effort to characterize  the  expected values of LKCs/MFs
+      under Gaussianity culminated by the discovery of the powerful
+      Gaussian  Kinematic  Formula (GKF)  by Adler \& Taylor.
+
+      \item GKF leads to anaytical prediction of LKCs for a number of
+        cases, e.g. harmonic \& needlet space.
+
+      \item Several studies (on going) in recent years investigated
+        characterizing the variance of LKCs/MFs in the high-frequency/high energy limit.
+        starting from Wigman (2009) for the nodal length. A second
+        order GKF like formula is emerging.
+
+        %Cammarota, Marinucci \& Wigman for the excursion area,  Cammarota, Marinucci \& Wigman (2016) for the Euler-Poincar
+        %characteristic, , Marinucci \& Wigman  for the critical values 
+        
+      \item The aim of this work is to present a unified overview of
+        the literature, and especially to perform a detailed numerical investigation to verify the practical relevance of
+        these results.
+      \end{itemize}
+  }
 %-----------------------------------------
 \frame {
   
@@ -242,8 +329,7 @@ A_u(f, M) = \{ x \in M : f(x) \geq u \}
   \begin{itemize}
 
   \item Developed by Adler \& Taylor, it is about expected
-    values of Lifshitz-Killing curvatures (LKCs)/Minkowski Functionals
-    (MFs) for excursion regions.
+    values of Lipshitz-Killing curvatures for excursion regions.
 
   %% \[
   %% A_{u}(f):=\left\{ x\in S^{2}:f(x)\geq u\right\} \text{ .} 
@@ -256,9 +342,10 @@ A_u(f, M) = \{ x \in M : f(x) \geq u \}
            
            {\small
              
-             where
+             where given $\omega_i$ representing the volume of the $i^{th}$−dimensional unit ball
              \[
-               {i+k \brack k} = {i+k \choose k}\frac{\omega_{i+k}}{\omega_k\omega_i}  
+               {i+k \brack k} = {i+k \choose
+                 k}\frac{\omega_{i+k}}{\omega_k\omega_i}                
                \]
            }
            
@@ -269,7 +356,7 @@ A_u(f, M) = \{ x \in M : f(x) \geq u \}
                \]
              }
              
-             where $H_j$ is the Hermite polynomials: $H_0(u)=1$, $H_1(u)=2u$, $H_2(u)=4u^2-1$, $H_3(u)=8u^3-12u$ 
+             where $H_j$ is the Hermite polynomials: $H_0(u)=1$, $H_1(u)=u$, $H_2(u)=u^2-1$, $H_3(u)=u^3-3u$ 
   \end{itemize}
 }
 
@@ -282,96 +369,29 @@ A_u(f, M) = \{ x \in M : f(x) \geq u \}
 
   \frametitle{The power of GKF }
   \begin{itemize}
-  \item Splits the metric dependence of the field from that of excursion set behaviour.
+  \item Splits the metric dependence of the field from that of
+    excursion set behaviour.\\
+    
   \item The $\mathcal{L}_{k}(M)$ part contains all the metric property. If
     the metric is scaled by $\lambda$, $\mathcal{L}_{k}(M)$ scales by
-    $\lambda^k$. 
-
-
-  \item  On a sphere the scaling $\lambda$ required to go to harmonic space is given by:
-    \[
-      \lambda_{s}= \sqrt{\frac{s(s+1)}{2}}, & \text{if } f(x)=T_\ell(x) \\
-    \]
+    $\lambda^k$. For spherical eigenfunctions, the scaling is
+      $\lambda_{s}= \sqrt{\frac{s(s+1)}{2}}$ \\
     
-  %% \item On a sphere $S^2$ with a given basis i.e harmonic or needlet,
-  %%   we can write 
-
-%% where  and possible boundaries i.e cut-sky
-%%     \[
-%%     \mathcal{L}_{0}(M)=2\text{ , }\mathcal{L}_{1}(M)=\frac{1}{2}\text{boundary
-%%       length},\text{ }\mathcal{L}_{2}(M)=f_{sky}4\pi \text{ ,}
-%%     \]%
-    
-   
-      
-     %  \[
-     %  \lambda_{s}= \begin{cases} 
-     %    \sqrt{\frac{s(s+1)}{2}}, & \text{if } f(x)=T_\ell(x) \\ 
-     %    \sqrt{\frac{ \sum_{\ell} b^{2}(\frac{\ell}{2^{s}})C_{\ell}\frac{2\ell+1}{4\pi}\frac{\ell(\ell+1)}{2}}%
-     %         {\sum_{\ell} b^{2}(\frac{\ell}{2^{s}})C_{\ell}\frac{2\ell+1}{4\pi}}},
-     %         & \text{if }f(x) = \beta_{j}(x)
-     %  \end{cases}       
-     % \]
-
   \item The $\mathcal{M}_{k}([u,\infty))$ part dependence only on the
     excursion threshold $u$. It absorbs all non-linear transformations:
-      \[
+    \begin{equation}
       H_{ns}(x):=H_{n}(f(x))=\frac{f^{n}(x)}{\sum_{l}b^{2}(\frac{%
           l}{B^{s}})\frac{2l+1}{4\pi }C_{l}}-1\text{ .} \text{where } n=2,3,..
-      \]
-
-
-
-  \end{itemize}
-  
-
+      \end{equation}
+  \end{itemize}  
   }
 
 %--------------------------------------------------------
 
-%------------------------------------
-\section{Applications of GKF in cosmology}
-%------------------------------------
-
-\frame {
-
-\frametitle{Applications of GKF in cosmology}
-
-\begin{itemize}
-
-\item Our interest here is to compute the expected values of the LKCs
-  (MFs) in harmonic and needlet space.
-
-\item The advantages of implementing LKCs on needlet space are:
-
-\begin{itemize}
-\item Needlets enjoy very good localization in pixel space - are
-  minimally affected by masked regions, especially at high-frequency
-  $j.$
-
-\item The double-localization properties of needlets (in real and harmonic
-space) allow a precise interpretation of any possible anomalies - offer a
- scale-by-scale probe of asymmetries and relevant
-features e.g. \emph{Cold Spot}. 
-
-%% \item The large low-$\ell$ cosmic variance affects MFs on the
-%%   full-sky, while this is not the case for MFs evaluated at the
-%%   highest needlet scales. The variance of normalized components may be
-%%   shown to decrease steadily, entailing a much greater detection power
-%%   in the presence of anomalies.
-\end{itemize}
-
-\end{itemize}
-
-}
-
-%------------------------------------------------------
-
-\subsection{Harmonic and needlet space LKCs: Gaussian case}
 %-----------------
 
 \frame{
-\frametitle{LKCs for a Gaussian field}
+\frametitle{Expected values of LKCs}
 
 \begin{itemize}
 
@@ -399,117 +419,247 @@ excursion region)
 \end{itemize}
 }
 
+\frame{
+    \frametitle{Variances of LKC}
+    The asymptotic behaviour of each of the three LKCs is dominated by a single, fully degenerate component,
+    which can be written as:
 
 
-%---------------------------------------
-\section{Simulations}
-%-----------------------------------------------------------------------------80
+\begin{eqnarray*}
+\mathtt{Proj}[\mathcal{L}_{k}(A_{u}(f_{\ell };\mathbb{S}^{2}))|2]
+&=&\frac{1}{2}\left[ 
+\begin{array}{c}
+2 \\
+k%
+\end{array}%
+\right] \left\{ \frac{\lambda _{\ell }}{2}\right\}
+^{(2-k)/2}H_{1}(u)H_{2-k}(u)\phi (u)\\
+& &\frac{1}{(2\pi )^{(2-k)/2}} \int_{\mathbb{S}^{2}}H_{2}(f_{\ell }(x))dx+a_{k}(\ell ),
+\end{eqnarray*}%
 
-\frame {
+where
+\begin{equation*}
+a_{k}(\ell )=\left\{ 
+\begin{array}{cc}
+O_{p}(\ell ) & \text{for }k=0, \\ 
+0 & \text{for }k=1,2%
+\end{array}%
+\right. \text{ .}
+\end{equation*}%
 
-  \frametitle{Computing LKCs from a (CMB) map}
-  \begin{itemize}     
-    \item Harmonic space - obtain $T_\ell(x)$ maps; normalize each map
-      by the expected RMS; power transform normalized $T_\ell$ maps to
-      obtain NG maps.
-  \item Needlet space - apply the standard needlet filter to the
-    spherical harmonic coefficients; obtain needlet maps $\beta_j(x)$;
-    normalize each map by the expected RMS; power transform normalized
-    $\beta_j(x)$ maps to obtain NG maps. The $j^{th}$ needlet map has a
-    compact support for $\ell$-range between $B^{j-1}$ and $B^{j+1}$
-    where we used B=1.5. \\
-
-  \item The area functional is computed by finding the ratio of
-    Healpix pixels above a certain temperature threshold. \\
-
-  \item The length and genus functionals are computed by using the
-    method described in Eriksen et. al. 2004 paper.
-  \end{itemize}
 }
 
 
-%-----------------------------------------------------------------------------80
+  \frame {
+    \frametitle{Simulation: Expected Values of LKCs}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{\figdir{expVar/ap3_b200nj5_u201_3sig_ps0_sim_vs_try_mfs_ell.pdf}}
+    \caption{ Analytical (red curve) vs Simulation (black and grey).} %1000 simulations.         
+    \end{figure}    
+  }
 
+  \frame {
+  \frametitle{Simulation: Variances of LKC}
+  \begin{figure}
+    \centering    
+      \includegraphics[width=0.8\textwidth,angle=0]{\figdir{expVar/ap3_b200nj5_u201_3sig_ps0_var_sim_vs_try_mfs_ell.pdf}}\\      
+    \end{figure}
+  }
+
+%------------------------------------
+
+\section{Critical points}
+%------------------------------------
+
+\frame{  
+  \frametitle{Critical points, Extrema and Saddle }  
+  \begin{equation*}
+  \resizebox{.9 \textwidth}{!} {
+$\mathcal{N}^{c}(f_\ell;u )=\mathcal{N}_{u}^{c}(f_{\ell })=\#\{x\in {\cal S}^2
+:f_{\ell }(x)\geq u,\nabla f_{\ell }(x)=0\},$}
+\end{equation*}
+
+\begin{equation*}
+  \resizebox{.9 \textwidth}{!} {
+$  \mathcal{N}^{e}(f_\ell;u)=\mathcal{N}_{u}^{e}(f_{\ell })=\#\{x\in {\cal S}^2
+:f_{\ell }(x)\geq u,\nabla f_{\ell }(x)=0,\text{det}(\nabla ^{2}f_{\ell
+}(x))>0\},$}
+\end{equation*}
+
+\begin{equation*}
+  \resizebox{.9 \textwidth}{!} {    
+$\mathcal{N}^{s}(f_\ell;u)=\mathcal{N}_{u}^{s}(f_{\ell })=\#\{x\in {\cal S}^2
+:f_{\ell }(x)\geq u,\nabla f_{\ell }(x)=0,\text{det}(\nabla ^{2}f_{\ell
+}(x))<0\}.$}
+\end{equation*}%
+  }
+
+  \frame{
+  \frametitle{Expected values of Critical points}    
+For every interval $u \in \mathcal{R}$ we have, as $\ell \rightarrow \infty$,
+\begin{equation*}
+\mathbb{E}[\mathcal{N}_{u}^{a}(f_{\ell })] =\frac{2}{\sqrt{3}} \ell(\ell+1) \int_{u}^{\infty}\pi _{1}^{a}(t)dt+O(1),
+\end{equation*}
+where $a=c,e,s$ and for the density
+functions
+
+\begin{align*}  
+  \pi _{1}^{c}(t)&=\frac{\sqrt{3}}{\sqrt{8\pi
+                   }}(2e^{-t^{2}}+t^{2}-1)e^{-\frac{                   
+                   t^{2}}{2}}, \\
+  \pi _{1}^{e}(t)&=\frac{\sqrt{3}}{\sqrt{2\pi
+                   }}(e^{-t^{2}}+t^{2}-1)e^{-\frac{                   
+                   t^{2}}{2}},\\
+  \pi _{1}^{s}(t)&=\pi _{1}^{c}(t)-\pi
+                   _{1}^{e}(t)=\frac{\sqrt{3}}{\sqrt{2\pi
+                   }}e^{-\frac{3}{2}t^{2}}.\\
+  \label{eqn:exp_crit}                                  
+\end{align*}
+}
 
 \frame{
-\frametitle{Multipole space -  Gaussian case}
-\begin{figure}[H]
-\begin{center}
-\includegraphics[width=0.31\textwidth,angle=0]{\figdir{\subdir/genus_mpow1_ell_55_compare.pdf}}
-\includegraphics[width=0.31\textwidth,angle=0]{\figdir{\subdir/genus_mpow1_ell_75_compare.pdf}}
-\includegraphics[width=0.31\textwidth,angle=0]{\figdir{\subdir/genus_mpow1_ell_105_compare.pdf}} \\
-\includegraphics[width=0.31\textwidth,angle=0]{\figdir{\subdir/length_mpow1_ell_55_compare.pdf}}
-\includegraphics[width=0.31\textwidth,angle=0]{\figdir{\subdir/length_mpow1_ell_75_compare.pdf}}
-\includegraphics[width=0.31\textwidth,angle=0]{\figdir{\subdir/length_mpow1_ell_105_compare.pdf}} \\
-\includegraphics[width=0.31\textwidth,angle=0]{\figdir{\subdir/area_mpow1_ell_55_compare.pdf}}
-\includegraphics[width=0.31\textwidth,angle=0]{\figdir{\subdir/area_mpow1_ell_75_compare.pdf}}
-\includegraphics[width=0.31\textwidth,angle=0]{\figdir{\subdir/area_mpow1_ell_105_compare.pdf}} \\
-\caption{ Analytical (blue curve) vs Simulation (black and grey. Grey Shades are $68, 95$ and $99
-  \%$ percentiles estimated from 100 simulations.}
-\end{center}
-\end{figure}
-
+  \frametitle{Variances of Critical points}
+  For every $u \in \mathcal{R}$ as $\ell \rightarrow \infty$
+  
+  \begin{equation*}
+    {\text{Var}}(\mathcal{N}_{u}^{a}(f_{\ell }))=\ell^3 \left[
+      \int_{u}^{\infty}p_{3}^{a}(t)dt\right] ^{2}+O(\ell^{2}\log^2 \ell),
+  \end{equation*}
+  where,
+  
+  \begin{eqnarray*}
+    p_{3}^{c}(t)&=&\frac{1}{ \sqrt{8 \pi }}e^{-\frac{3}{2} t^{2}
+                    }[2-6t^{2}-e^{t^{2}}(1-4t^{2}+t^{4})], \\
+    p_{3}^{e}(t)&=&\frac{1}{ \sqrt{8 \pi }}e^{-\frac{3}{2} t^{2}
+                    }[1-3t^{2}-e^{t^{2}}(1-4t^{2}+t^{4})],\\
+    p_{3}^{s}(t)&=&\frac{1}{q \sqrt{8 \pi }}(1-3t^{2})e^{-\frac{3}{2}%
+                    t^{2}}. \\
+  \end{eqnarray*}  
+  
+  }
+  
+  \frame{
+  \frametitle{Variances of Critical points}
+  
+  The leading constants for the variances can be written more
+  explicitly as
+  
+  \begin{eqnarray*}
+    \left[ \int_{u}^{\infty }p_3^c(t)dt \right]^{2} &=& \frac{1}{8 \pi} e^{- 3 u^2} u^2 (2+ e^{u^2}
+                                                        (u^2-1))^2, \\
+    \left[ \int_{u}^{\infty }p_3^e(t)dt \right]^{2} &=& \frac{1}{8 \pi}  e^{- 3
+                                                        u^2} u^2 (1+ e^{u^2} (u^2-1))^2,\\
+    \left[ \int_{u}^{\infty }p_3^s(t)dt \right]^{2} &=& \frac{1}{8 \pi}  e^{- 3 u^2} u^2.\\
+  \end{eqnarray*}
+  
+  Note that the leading terms in the variances cancel in all cases at
+  the threshold $u=-\infty$ as well as $u=0$; The former means the
+  variance is smaller when we focus on the total number of critical
+  points.
 
 }
+                                                   
+\frame {
+  \frametitle{Expected Values of critical points}
+  \begin{figure}
+        \centering
+      \includegraphics[width=0.7\textwidth,angle=0]{\figdir{expVar/criticals_multipole_nside2048_mean.png}}\\
+      \includegraphics[width=0.7\textwidth,angle=0]{\figdir{expVar/extrema_multipole_nside2048_mean.png}}\\
+      \includegraphics[width=0.7\textwidth,angle=0]{\figdir{expVar/saddles_multipole_nside2048_mean.png}}
+      \caption{ Analytical (red curve) vs Simulation (black and
+        grey).} %1000 simulations.            
+    \end{figure}
+  }
+
+
+\frame {
+  \frametitle{Variances of Critical points}
+  \begin{figure}
+    \centering    
+      \includegraphics[width=1\textwidth,angle=0]{\figdir{expVar/var_crit_ext_sad_multipole_nside2048_mean.png}}
+    \end{figure}
+  }
+
+\section{Correlations of LKC \& Critical points}  
+\frame {
+  \frametitle{Correlations}
+  \begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth,angle=0]{\figdir{expVar/ap3_b100nj10_u5_3sig_ps0_mfu_critu_corrcoef.png}}
+  \end{figure}
+  }
 
 
 %--------------------------------------
 
-\section{Summary and Conclusion}
+\section{Summary}
 %----------------------------------------
-\frame{
-\frametitle{Summary}
 
+  
+\frame {
+
+\frametitle{Possible Applications}
+
+What we have at the moment for Eigenfunctions of the sphere:
 \begin{itemize}
-\item Exact formula on full sky - no flat sky approximation! \\
-\item Analytical results agrees very well with simulations.
-\item Evaluation in both multipole and needlet space: \\
-\begin{itemize}
-\item separates scale/frequency \\
-\item mitigates contamination of high-frequency modes by the large low-$\ell$  cosmic variances.  \\
-\item allows a unified measure of deviation from Gaussianity (work in progress)\\
-\end{itemize}
-\item Handles effect of mask analytically!! \\
-\item Handles non-Gaussianity analytically. \\
-\item Analytical predications of the LKCs variances (work in progress).
+
+\item Exact analytical predictions of the expected values of the LKCs
+  (MFs) and accurate estimate on their variances.
+
+\item Accurate analytical predictions of the expected values of
+  critical points and their variances
+
+\item Impurities, testing CMB inpainting algorithms for Gaussianity
+  violation on MFs and peak statistics, etc.
+
+\item Note that full-sky (inpainted) maps of the CMB have been released by Planck
+2018; A Rassat et al. (2014) produced full sky CMB map.
+  
 \end{itemize}
 
 }
 
 
+\nocite{*}
 
-%% \frame{
+%--------------------------------------------------
+\begin{thebibliography}{99}
+\bibitem{Adler e Taylor} Adler, R. J.; Taylor, J. E. (2007)
+  \textit{Random fields and geometry}. Springer Monographs in
+  Mathematics. Springer,
+  New York. \\
+  
+\bibitem{CM}  Cammarota, V.; Marinucci, D. (2018) A
+  Quantitative Central Limit Theorem for the Euler-Poincaré
+  Characteristic of Random Spherical
+  Eigenfunctions. \textit{Annals of Probabability }46, no. 6,
+  3188–3228. \\
 
-%% \begin{figure}
-%% \begin{center}
-%% \includegraphics[width=0.31y5\textwidth,angle=0]{\figdirTwo{map_sup_u-2_fwhm1deg.pdf}} 
-%% \includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u-1_fwhm1deg.pdf}} 
-%% \includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u0_fwhm1deg.pdf}} \\
-%% \includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u1_fwhm1deg.pdf}} 
-%% \includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u2_fwhm1deg.pdf}} 
-%% \includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u3_fwhm1deg.pdf}} 
-%% \end{center}
-%% \end{figure}
+\bibitem{MV} Marinucci, D.; Vadlamani, S. (2016)
+  High-Frequency Asymptotics for Lipschitz-Killing Curvatures
+  of Excursion Sets on the Sphere. \textit{Ann. Appl. Probab.}
+  26, no. 1, 462-506. \\
+            
+\bibitem{CMW} Cammarota, V.; Marinucci, D.; Wigman, I. (2016)
+  Fluctuations of the Euler-Poincar\'e characteristic for random
+  spherical harmonics,
+  \textit{Proceedings of the American Mathematical Society}, 11,
+  4759-4775. \\
+  
+  
+\bibitem{CMW2016} Cammarota, V.; Marinucci, D.; Wigman,
+  I. (2016) On the distribution of the critical values of random
+  spherical harmonics, \textit{Journal of Geometric Analysis},
+  4, 3252-3324.
+	        
+\end{thebibliography}
 
-%% }
 
-%% \frame{
 
-%% \begin{figure}
-%% \begin{center}
-%% \includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u-4_fwhm10deg.pdf}} 
-%% \includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u-2_fwhm10deg.pdf}} 
-%% \includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u0_fwhm10deg.pdf}} \\
-%% \includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u1_fwhm10deg.pdf}} 
-%% \includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u2_fwhm10deg.pdf}} 
-%% \includegraphics[width=0.33\textwidth,angle=0]{\figdirTwo{map_sup_u3_fwhm10deg.pdf}} 
-%% \end{center}
-%% \end{figure}
-
-%% }
 
 %%\item LKCs 
-%% \item  the Lebesgue and Gaussian measure of the tube defines the Lifschitz-Killing Curvatures (LKCs) $\mathcal{L}_{k}(M)$ and Gaussian Minkowski Functionals (GMFS) $\mathcal{M}_{dim(M)-k}(M)$ respectively. 
+%% \item  the Lebesgue and Gaussian measure of the tube defines the Lipschitz-Killing Curvatures (LKCs) $\mathcal{L}_{k}(M)$ and Gaussian Minkowski Functionals (GMFS) $\mathcal{M}_{dim(M)-k}(M)$ respectively. 
 
 
 %% \item  Let $\gamma=\gamma_k$ be a Gauss measure on $\mathcal{R}$ so that for $A \subset \mathcal{R}$
@@ -528,77 +678,5 @@ excursion region)
 
 %%\item $\mathcal{M}_1$, $\mathcal{M}_2$, $\mathcal{M}_3$ are known as the \emph{area}, \emph{length} and \emph{genus} respectively.
 
-  %% \item The three Minkowski functionals  (MFs) are: \\
-  %%   \begin{itemize} 
-  %% \item Area: the fraction of area  above a certain temperature or polarisation intensity threshold \\
-  %%  \item Length: the length of the boundary between fractions, below and above a certain threshold.  \\
-  %%  \item Genus: Given the number of minima ($N_{min}$), maxima ($N_{max}$) and saddle points ($N_{sadl}$) 
-  %%   above a certain threshold, it is defined as G =  $N_{min}+N_{max} - N_{sadl}$ \\
-  %%     \end{itemize}
-
-%--------------------------------------------------
-%-----------------------------------------------------------------------------80
-
-%% \frame
-%% {
-%%   \frametitle{Gaussian Minkowski Functionals (MFs)}
-
-%%   \begin{itemize} 
-%% \item  Let $\gamma=\gamma_k$ be a Gauss measure on $\mathcal{R}$ so that for $A \subset \mathcal{R}$
-%% \[
-%% \gamma_k(A) = (2\pi)^{-k/2}\int_A{e^{-|x|^2/2}dx}.
-%% \]
-
-%% \item now define a tube around $A$ such that
-%%  \[
-%%  \gamma_k(Tube(A,\rho)) = \gamma_k(A) + \sum_{j=1}^{\infty}{\frac{\rho^j}{j!}\mathcal{M}_j^{\gamma_k}(A)}
-%% \]
-
-%% \item $\mathcal{M}_j^{\gamma_k}(A)$ for $j \geq 1$ are called Gaussian MFs. For example for $[u,\infty)\subset R$
-%% \[
-%% \mathcal{M}_j^{\gamma_k}([u,\infty))=(2\pi)^{-1/2}H_{j-1}(u)e^{-u^2/2}.
-%% \]
-
-%% \item $\mathcal{M}_1$, $\mathcal{M}_2$, $\mathcal{M}_3$ are known as the \emph{area}, \emph{length} and \emph{genus} respectively.
-
-%%   %% \item The three Minkowski functionals  (MFs) are: \\
-%%   %%   \begin{itemize} 
-%%   %% \item Area: the fraction of area  above a certain temperature or polarisation intensity threshold \\
-%%   %%  \item Length: the length of the boundary between fractions, below and above a certain threshold.  \\
-%%   %%  \item Genus: Given the number of minima ($N_{min}$), maxima ($N_{max}$) and saddle points ($N_{sadl}$) 
-%%   %%   above a certain threshold, it is defined as G =  $N_{min}+N_{max} - N_{sadl}$ \\
-%%   %%     \end{itemize}
-
-%%   \end{itemize}
-
-%% }
-
-%-----------------------------------------------------------------------------80
-
-%% \frame {
-%%   \frametitle{Lipschitz-Killing curvatures (LKCs)}
-  
-%%   \begin{itemize} 
-%%     \item To be defined
-%% \end{itemize}
-  
-%%   }
-  
-%-----------------------------------------------------------------------------80
-
-%\frame {
-
-%%     \begin{figure}
-
-%%     \includegraphics[width=0.30\textwidth]{\figdir{asymm_Aps_30_ruler_common_ddx9.png}}
-%% \includegraphics[width=0.30\textwidth]{\figdir{asymm_Aps_30_nilc_common_ddx9.png}} 
-%% \includegraphics[width=0.30\textwidth]{\figdir{asymm_Aps_30_sevem_common_ddx9.png}} \\
-%% \includegraphics[width=0.30\textwidth]{\figdir{asymm_Aps_30_smica_common_ddx9.png}}
-%% \includegraphics[width=0.30\textwidth]{\figdir{asymm_Aps_30_smica_smica_ddx9.png}}
-%%         \caption{Commander-Ruler, NILC, SEVEM, SMICA, SMICA**}
-%%     \end{figure}
-
-
-%}
 
 \end{document}
