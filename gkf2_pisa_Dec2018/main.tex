@@ -193,18 +193,23 @@ A_u(f, M) = \{ x \in M : f(x) \geq u \}
 
   \begin{itemize} 
 
-    \item Lifschitz-Killing Curvatures (LKCs), a.k.a Minkowski Functionals (MFs), can be defined using a tube formula:
+    \item The volume of a tube with radius $\rho$ bounding Maround M,  $Tube(M,\rho) = \{ t\in \mathcal{R}^N : dist(M,x)\leq\rho \}$ is given by (Steiner's formula) 
+    
+    %Lifschitz-Killing Curvatures (LKCs), a.k.a Minkowski Functionals (MFs), can be defined using a tube formula:
     
     \[
     \mu(Tube(M,\rho)) = \sum_{j=0}^{n=dim(M)}{\omega_j\mathcal{L}_{n-j}(M)\rho^j}
     \]
 
-    where $Tube(M,\rho) = \{ t\in \mathcal{R}^N : dist(M,x)\leq\rho \}$ is a
-    tube of radius $\rho$ bounding M; $\mu$ is Lebesgue measure; and
+    $\mu$ is Lebesgue measure; and
     $w_j$ is the volume of a unit ball in $\mathcal{R}^j$.
     
-  \item LKCs depend on the Riemannian metric, and are a measure of the k-dimensional size of the
-    Riemannian manifold $M$.
+\item Lifschitz-Killing Curvatures (LKCs) $\mathcal{L}$ are related to Minkowski Functionals $\mathcal{M}_j$ 
+\[
+\mathcal{M_j} = (j! \omega_j)\mathcal{L_}{N-j} \hspace j=0,1,2...,N
+\]
+  %\item LKCs depend on the Riemannian metric, and are a measure of the k-dimensional size of the
+  %  Riemannian manifold $M$.
 
   %% \item For example in $n=2$, $\mathcal{L}_{0}$ corresponds to the
   %%   genus ; $\mathcal{L}_{1}$ to the perimeter/2 and
